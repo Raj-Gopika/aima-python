@@ -289,7 +289,7 @@ def main():
 
 
     ##get config setting from json file
-    config_file = './MapConfig/config9x9.json'
+    config_file = '/Users/Gops/Documents/aima-python/Lab_Week_4-20241022/MapConfig/config9x9.json'
 
     # start and goal position
     with open(config_file) as config_env:
@@ -305,8 +305,19 @@ def main():
     fig_dim = param['fig_dim']
 
     # padas is used to read map in .xlsx file
-    gmap = pd.read_excel(map_xlsx,header=None)
-    data = gmap.to_numpy()
+    import numpy as np
+    gmap = np.array([
+    [1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 1, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1]
+    ])
+   # data = gmap.to_numpy()
+    data = gmap
 
     # Up side down: origin of image is up left corner, while origin of figure is bottom left corner
     data = data[::-1]   
